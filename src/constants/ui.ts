@@ -1,0 +1,7 @@
+export const ANIMATION_DURATION = 200;
+export const COMMENT_LIMIT = 250;
+
+export const BUTTON_WITH_SPACE_WIDTH = 142;
+export const BUTTON_WITH_SPACE_MOBILE_WIDTH = 112;
+
+export const ALL_ACTIONS_MOBILE_WIDTH = 40;
