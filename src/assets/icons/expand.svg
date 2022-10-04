@@ -1,0 +1,6 @@
+<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M4 4V3H3v1h1Zm7.293 8.707a1 1 0 0 0 1.414-1.414l-1.414 1.414ZM5 10V4H3v6h2ZM4 5h6V3H4v2Zm-.707-.293 8 8 1.414-1.414-8-8-1.414 1.414Z" fill="currentColor"/>
+  <path d="M4 20v1H3v-1h1Zm7.293-8.707a1 1 0 0 1 1.414 1.414l-1.414-1.414ZM5 14v6H3v-6h2Zm-1 5h6v2H4v-2Zm-.707.293 8-8 1.414 1.414-8 8-1.414-1.414Z" fill="currentColor"/>
+  <path d="M20 4V3h1v1h-1Zm-7.293 8.707a1 1 0 0 1-1.414-1.414l1.414 1.414ZM19 10V4h2v6h-2Zm1-5h-6V3h6v2Zm.707-.293-8 8-1.414-1.414 8-8 1.414 1.414Z" fill="currentColor"/>
+  <path d="M20 20v1h1v-1h-1Zm-7.293-8.707a1 1 0 0 0-1.414 1.414l1.414-1.414ZM19 14v6h2v-6h-2Zm1 5h-6v2h6v-2Zm.707.293-8-8-1.414 1.414 8 8 1.414-1.414Z" fill="currentColor"/>
+</svg>

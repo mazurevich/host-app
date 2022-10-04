@@ -1,0 +1,133 @@
+@use "src/scss/variables";
+
+.toast-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 460px;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 15px #{"rgba(var(--dark--rgb), 0.1)"};
+
+  .toast-type-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 16px;
+    height: 24px;
+  }
+
+  &.success {
+    background: var(--background--success);
+    border: 1px solid var(--mid--success);
+
+    .toast-type-icon,
+    .toast-title {
+      color: var(--green-core);
+    }
+  }
+
+  &.error {
+    background: var(--background--error);
+    border: 1px solid var(--mid--error);
+
+    .toast-type-icon,
+    .toast-title {
+      color: var(--red-core);
+    }
+  }
+
+  &.warning {
+    background: var(--background--warning);
+    border: 1px solid var(--mid--warning);
+
+    .toast-type-icon,
+    .toast-title {
+      color: var(--orange-core);
+    }
+  }
+
+  &.info {
+    background: var(--background--info);
+    border: 1px solid var(--mid--info);
+
+    .toast-type-icon,
+    .toast-title {
+      color: var(--typography--secondary);
+    }
+  }
+  &.default {
+    background: var(--background--primary);
+    border: 1px solid var(--divider--primary);
+
+    .toast-type-icon,
+    .toast-title {
+      color: var(--typography--secondary);
+    }
+  }
+}
+
+.mobile-toast-wrapper {
+  width: 100%;
+}
+
+.toast-body {
+  display: flex;
+  flex-direction: column;
+  padding: 0 12px;
+
+  .toast-title {
+    margin-bottom: 2px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+  }
+
+  .toast-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    color: var(--typography--primary);
+  }
+}
+
+.toast-buttons-wrapper {
+  display: flex;
+  margin-left: auto;
+
+  .toast-action-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+    padding: 0 12px;
+    margin-left: 12px;
+    background: var(--background--primary);
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    color: var(--typography--primary);
+    cursor: pointer;
+  }
+
+  .toast-close-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    margin-left: 12px;
+    background: var(--background--primary);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    svg {
+      color: var(--typography--primary);
+    }
+  }
+}

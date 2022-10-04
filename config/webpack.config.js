@@ -25,8 +25,45 @@ const ForkTsCheckerWebpackPlugin =
     ? require('react-dev-utils/ForkTsCheckerWarningWebpackPlugin')
     : require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+const postcssFlexbugsFixes = require("postcss-flexbugs-fixes");
 
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash');
+
+const mode = process.env.NODE_ENV || "development";
+const isProduction = mode === "production";
+const useSourceMap = true;
+
+const patterns = {
+  name: "[name]",
+  nameExt: "[name][ext]",
+  nameFullhash: "[name]-[fullhash]",
+  nameContenthash: "[name]-[contenthash]",
+  id: "[id]",
+  idContenthash: "[id]-[contenthash]",
+  hashExtQuery: "[hash][ext][query]",
+  hashBase64: "[hash:base64]",
+  localHashBase645: "[local]--[hash:base64:5]",
+};
+
+// const paths = {
+//   public: "/",
+//   asset: isProduction
+//     ? `assets/${patterns.hashExtQuery}`
+//     : `assets/${patterns.nameExt}`,
+//   css: isProduction
+//     ? `css/${patterns.nameContenthash}.css`
+//     : `css/${patterns.name}.css`,
+//   cssChunk: isProduction
+//     ? `css/${patterns.idContenthash}.css`
+//     : `css/${patterns.id}.css`,
+//   js: isProduction
+//     ? `js/${patterns.nameFullhash}.js`
+//     : `js/${patterns.name}.js`,
+//   serverJs: isProduction
+//     ? `${patterns.nameFullhash}.js`
+//     : `${patterns.name}.js`,
+// };
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -334,6 +371,7 @@ module.exports = function (webpackEnv) {
           babelRuntimeEntryHelpers,
           babelRuntimeRegenerator,
         ]),
+        new TsconfigPathsPlugin(),
       ],
     },
     module: {
@@ -390,12 +428,12 @@ module.exports = function (webpackEnv) {
                     ref: true,
                   },
                 },
-                {
-                  loader: require.resolve('file-loader'),
-                  options: {
-                    name: 'static/media/[name].[hash].[ext]',
-                  },
-                },
+                // {
+                //   loader: require.resolve('file-loader'),
+                //   options: {
+                //     name: 'static/media/[name].[hash].[ext]',
+                //   },
+                // },
               ],
               issuer: {
                 and: [/\.(ts|tsx|js|jsx|md|mdx)$/],
@@ -419,7 +457,7 @@ module.exports = function (webpackEnv) {
                     },
                   ],
                 ],
-                
+
                 plugins: [
                   isEnvDevelopment &&
                     shouldUseReactRefresh &&
@@ -453,7 +491,7 @@ module.exports = function (webpackEnv) {
                 cacheDirectory: true,
                 // See #6846 for context on why cacheCompression is disabled
                 cacheCompression: false,
-                
+
                 // Babel sourcemaps are needed for debugging into node_modules
                 // code.  Without the options below, debuggers like VSCode
                 // show incorrect code and set breakpoints on the wrong lines.
@@ -461,45 +499,57 @@ module.exports = function (webpackEnv) {
                 inputSourceMap: shouldUseSourceMap,
               },
             },
-            // "postcss" loader applies autoprefixer to our CSS.
-            // "css" loader resolves paths in CSS and adds assets as dependencies.
-            // "style" loader turns CSS into JS modules that inject <style> tags.
-            // In production, we use MiniCSSExtractPlugin to extract that CSS
-            // to a file, but in development "style" loader enables hot editing
-            // of CSS.
-            // By default we support CSS Modules with the extension .module.css
             {
-              test: cssRegex,
-              exclude: cssModuleRegex,
-              use: getStyleLoaders({
-                importLoaders: 1,
-                sourceMap: isEnvProduction
-                  ? shouldUseSourceMap
-                  : isEnvDevelopment,
-                modules: {
-                  mode: 'icss',
+              test: /\.(css|s[ac]ss)$/,
+              exclude: /node_modules/,
+              use: [
+                MiniCssExtractPlugin.loader,
+                "@teamsupercell/typings-for-css-modules-loader",
+                {
+                  loader: "css-loader",
+                  options: {
+                    sourceMap: true,
+                    modules: {
+                      localIdentName: isProduction
+                        ? patterns.hashBase64
+                        : patterns.localHashBase645,
+                      exportLocalsConvention: "camelCaseOnly",
+                    },
+                  },
                 },
-              }),
-              // Don't consider CSS imports dead code even if the
-              // containing package claims to have no side effects.
-              // Remove this when webpack adds a warning or an error for this.
-              // See https://github.com/webpack/webpack/issues/6571
-              sideEffects: true,
+                {
+                  loader: "sass-loader",
+                  options: {
+                    sourceMap: useSourceMap,
+                  },
+                },
+                {
+                  loader: "postcss-loader",
+                  options: {
+                    sourceMap: useSourceMap,
+                    postcssOptions: {
+                      parser: "postcss-scss",
+                      plugins: [
+                        postcssFlexbugsFixes,
+                        [
+                          "postcss-preset-env",
+                          {
+                            autoprefixer: {
+                              flexbox: "no-2009",
+                            },
+                            stage: 3,
+                          },
+                        ],
+                      ],
+                    },
+                  },
+                },
+              ],
             },
-            // Adds support for CSS Modules (https://github.com/css-modules/css-modules)
-            // using the extension .module.css
             {
-              test: cssModuleRegex,
-              use: getStyleLoaders({
-                importLoaders: 1,
-                sourceMap: isEnvProduction
-                  ? shouldUseSourceMap
-                  : isEnvDevelopment,
-                modules: {
-                  mode: 'local',
-                  getLocalIdent: getCSSModuleLocalIdent,
-                },
-              }),
+              test: /\.css$/,
+              include: [/node_modules[\/\\]swiper/],
+              use: [MiniCssExtractPlugin.loader, "css-loader"],
             },
             // Opt-in support for SASS (using .scss or .sass extensions).
             // By default we support SASS Modules with the
@@ -563,6 +613,10 @@ module.exports = function (webpackEnv) {
       ].filter(Boolean),
     },
     plugins: [
+      new MiniCssExtractPlugin({
+        filename: `css/${patterns.name}.css`,
+        chunkFilename: `css/${patterns.id}.css`,
+      }),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(

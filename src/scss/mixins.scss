@@ -1,0 +1,179 @@
+@use "./variables";
+@use "./layers";
+
+@function get-vw($target) {
+  $vw-context: (1920 * 0.1) * 1px;
+  @return ($target / $vw-context) * 1vw;
+}
+
+@function hex-to-rgb($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
+@mixin text-ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@mixin multiline-text-ellipsis($lineClamp: 2) {
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: $lineClamp;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+@mixin card {
+  box-shadow: 0 12px 24px #{"rgba(var(--dark--rgb), 0.08)"};
+  border-radius: 12px;
+}
+
+@mixin floating-card {
+  @include card;
+
+  backdrop-filter: blur(100px);
+  background-color: #{"rgba(var(--background--primary--rgb), 0.08)"};
+}
+
+@mixin text-input-placeholder-shown {
+  border-color: var(--background--light-stroke);
+  background-color: var(--background--light-stroke);
+}
+
+@mixin text-input-hover {
+  border-color: var(--mid--info);
+  background-color: var(--background--light-stroke);
+}
+
+@mixin text-input-focus {
+  border-color: var(--blue-core);
+  background-color: var(--background--primary);
+}
+
+@mixin text-input-disabled {
+  color: #{"rgba(var(--typography--secondary--rgb), .4)"};
+  border-color: #{"rgba(var(--background--light-stroke--rgb), .4)"};
+  background-color: #{"rgba(var(--background--light-stroke--rgb), .4)"};
+}
+
+@mixin text-input-disabled-placeholder {
+  color: #{"rgba(var(--typography--secondary--rgb), .4)"};
+}
+
+@mixin text-input-placeholder {
+  color: var(--typography--secondary);
+}
+
+@mixin text-input {
+  border-radius: 8px;
+  padding: 11px 10px;
+  border-width: 2px;
+  border-style: solid;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--typography--primary);
+  background-color: var(--background--primary);
+  border-color: var(--background--dark-stroke);
+  outline: none;
+
+  &:placeholder-shown {
+    @include text-input-placeholder-shown();
+  }
+
+  &:hover {
+    @include text-input-hover();
+  }
+
+  &:focus {
+    @include text-input-focus();
+  }
+
+  &:disabled {
+    @include text-input-disabled();
+  }
+
+  &:disabled::placeholder {
+    @include text-input-disabled-placeholder();
+  }
+
+  &::placeholder {
+    @include text-input-placeholder();
+  }
+}
+
+@mixin vertical-slide($name, $from, $to) {
+  @keyframes #{$name} {
+    0% {
+      transform: translateY($from);
+    }
+    100% {
+      transform: translateY($to);
+    }
+  }
+}
+
+@mixin slide-up {
+  @include vertical-slide(slide-up, 100%, 0);
+}
+@mixin slide-down {
+  @include vertical-slide(slide-down, 0, 100%);
+}
+
+@mixin use-animation(
+  $name,
+  $duration: variables.$animation-duration,
+  $delay: 0ms,
+  $easing: ease-in-out
+) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-timing-function: $easing;
+  animation-fill-mode: forwards;
+}
+
+@mixin overlay {
+  background-color: #{"rgba(var(--dark--rgb), 0.2)"};
+  backdrop-filter: blur(20px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: layers.$modal;
+}
+
+@mixin chevron {
+  transform-origin: center;
+  transition: transform 0.3s linear;
+
+  &--active {
+    @extend .chevron;
+    transform: rotate(180deg);
+  }
+}
+
+@mixin hidden-scroll-x {
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

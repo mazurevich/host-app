@@ -1,0 +1,13 @@
+@use "src/scss/variables";
+@use "src/scss/layers";
+
+.page {
+  position: relative;
+  z-index: layers.$main-content;
+  min-height: 100%;
+}
+
+.page-desktop {
+  padding: variables.$header-height 0 variables.$container-padding
+    variables.$side-navigation-width;
+}

@@ -1,0 +1,15 @@
+div.toast-container {
+  max-width: unset;
+  padding: unset;
+  border-radius: unset;
+  box-shadow: unset;
+  background: unset;
+  line-height: unset;
+  color: unset;
+}
+
+.toast-container-mobile {
+  display: flex;
+  flex-grow: 1;
+  margin: 0 -6px;
+}

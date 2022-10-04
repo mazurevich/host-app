@@ -1,0 +1,18 @@
+.pill {
+  border-radius: 9999px;
+  padding: 8px 16px;
+  background-color: var(--background--light-stroke);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--typography--secondary);
+  cursor: pointer;
+  min-width: 90px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.pill-active {
+  background-color: var(--blue-core);
+  color: var(--light);
+}

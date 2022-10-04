@@ -24,6 +24,13 @@ module.exports = babelJest.createTransformer({
       },
     ],
   ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-react-jsx", {
+      "throwIfNamespace": false
+    }
+    ]
+  ],
   babelrc: false,
   configFile: false,
 });

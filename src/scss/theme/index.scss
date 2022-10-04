@@ -1,0 +1,369 @@
+@use "light";
+@use "dark";
+@use "../mixins";
+
+$black: #000000;
+$white: #ffffff;
+
+:root {
+  --dark: #{$black};
+  --dark--rgb: #{mixins.hex-to-rgb($black)};
+  --light: #{$white};
+  --light--rgb: #{mixins.hex-to-rgb($white)};
+
+  --background--primary: #{light.$background--primary};
+  --background--primary--rgb: #{mixins.hex-to-rgb(light.$background--primary)};
+  --background--subtle: #{light.$background--subtle};
+  --background--subtle--rgb: #{mixins.hex-to-rgb(light.$background--subtle)};
+  --background--light-stroke: #{light.$background--light-stroke};
+  --background--light-stroke--rgb: #{mixins.hex-to-rgb(
+      light.$background--light-stroke
+    )};
+  --background--dark-stroke: #{light.$background--dark-stroke};
+  --background--dark-stroke--rgb: #{mixins.hex-to-rgb(
+      light.$background--dark-stroke
+    )};
+  --background--dark-grey: #{light.$background--dark-grey};
+  --background--error: #{light.$background--error};
+  --background--error-rgb: #{mixins.hex-to-rgb(light.$background--error)};
+  --background--success: #{light.$background--success};
+  --background--success-rgb: #{mixins.hex-to-rgb(light.$background--success)};
+  --background--warning: #{light.$background--warning};
+  --background--warning-rgb: #{mixins.hex-to-rgb(light.$background--warning)};
+  --background--info: #{light.$background--info};
+  --background--info-rgb: #{mixins.hex-to-rgb(light.$background--info)};
+
+  --cta--primary--default: #{light.$cta--primary--default};
+  --cta--primary--default--rgb: #{mixins.hex-to-rgb(
+      light.$cta--primary--default
+    )};
+  --cta--primary--hover: #{light.$cta--primary--hover};
+  --cta--primary--hover--rgb: #{mixins.hex-to-rgb(light.$cta--primary--hover)};
+  --cta--primary--active: #{light.$cta--primary--active};
+  --cta--primary--active--rgb: #{mixins.hex-to-rgb(light.$cta--primary--active)};
+  --cta--primary--disabled: #{light.$cta--primary--disabled};
+  --cta--primary--disabled--rgb: #{mixins.hex-to-rgb(
+      light.$cta--primary--disabled
+    )};
+
+  --cta--secondary--default: #{light.$cta--secondary--default};
+  --cta--secondary--default--rgb: #{mixins.hex-to-rgb(
+      light.$cta--secondary--default
+    )};
+  --cta--secondary--hover: #{light.$cta--secondary--hover};
+  --cta--secondary--hover--rgb: #{mixins.hex-to-rgb(
+      light.$cta--secondary--hover
+    )};
+  --cta--secondary--active: #{light.$cta--secondary--active};
+  --cta--secondary--active--rgb: #{mixins.hex-to-rgb(
+      light.$cta--secondary--active
+    )};
+  --cta--secondary--disabled: #{light.$cta--secondary--disabled};
+  --cta--secondary--disabled--rgb: #{mixins.hex-to-rgb(
+      light.$cta--secondary--disabled
+    )};
+
+  --cta--positive--default: #{light.$cta--positive--default};
+  --cta--positive--default--rgb: #{mixins.hex-to-rgb(
+      light.$cta--positive--default
+    )};
+  --cta--positive--hover: #{light.$cta--positive--hover};
+  --cta--positive--hover--rgb: #{mixins.hex-to-rgb(light.$cta--positive--hover)};
+  --cta--positive--active: #{light.$cta--positive--active};
+  --cta--positive--active--rgb: #{mixins.hex-to-rgb(
+      light.$cta--positive--active
+    )};
+  --cta--positive--disabled: #{light.$cta--positive--disabled};
+  --cta--positive--disabled--rgb: #{mixins.hex-to-rgb(
+      light.$cta--positive--disabled
+    )};
+
+  --cta--negative--default: #{light.$cta--negative--default};
+  --cta--negative--default--rgb: #{mixins.hex-to-rgb(
+      light.$cta--negative--default
+    )};
+  --cta--negative--hover: #{light.$cta--negative--hover};
+  --cta--negative--hover--rgb: #{mixins.hex-to-rgb(light.$cta--negative--hover)};
+  --cta--negative--active: #{light.$cta--negative--active};
+  --cta--negative--active--rgb: #{mixins.hex-to-rgb(
+      light.$cta--negative--active
+    )};
+  --cta--negative--disabled: #{light.$cta--negative--disabled};
+  --cta--negative--disabled--rgb: #{mixins.hex-to-rgb(
+      light.$cta--negative--disabled
+    )};
+
+  --typography--primary: #{light.$typography--primary};
+  --typography--primary--rgb: #{mixins.hex-to-rgb(light.$typography--primary)};
+  --typography--secondary: #{light.$typography--secondary};
+  --typography--secondary--rgb: #{mixins.hex-to-rgb(
+      light.$typography--secondary
+    )};
+  --typography--tertiary: #{light.$typography--tertiary};
+  --typography--tertiary--rgb: #{mixins.hex-to-rgb(light.$typography--tertiary)};
+
+  --divider--primary: #{light.$divider--primary};
+  --divider--primary--rgb: #{mixins.hex-to-rgb(light.$divider--primary)};
+  --divider--secondary: #{light.$divider--secondary};
+  --divider--secondary--rgb: #{mixins.hex-to-rgb(light.$divider--secondary)};
+
+  --red-core: #{light.$red-core};
+  --red-core--rgb: #{mixins.hex-to-rgb(light.$red-core)};
+  --orange-core: #{light.$orange-core};
+  --orange-core--rgb: #{mixins.hex-to-rgb(light.$orange-core)};
+  --supernova-core: #{light.$supernova-core};
+  --supernova-core--rgb: #{mixins.hex-to-rgb(light.$supernova-core)};
+  --green-core: #{light.$green-core};
+  --green-core--rgb: #{mixins.hex-to-rgb(light.$green-core)};
+  --blue-core: #{light.$blue-core};
+  --blue-core--rgb: #{mixins.hex-to-rgb(light.$blue-core)};
+  --soft-blue: #{light.$soft-blue};
+  --soft-blue--rgb: #{mixins.hex-to-rgb(light.$soft-blue)};
+  --electric-core: #{light.$electric-core};
+  --electric-core--rgb: #{mixins.hex-to-rgb(light.$electric-core)};
+  --purple-core: #{light.$purple-core};
+  --purple-core--rgb: #{mixins.hex-to-rgb(light.$purple-core)};
+  --pacific-core: #{light.$pacific-core};
+  --pacific-core--rgb: #{mixins.hex-to-rgb(light.$pacific-core)};
+  --gray-core: #{light.$gray-core};
+  --gray-core--rgb: #{mixins.hex-to-rgb(light.$gray-core)};
+
+  --emphasis-blue: #{light.$emphasis-blue};
+  --emphasis-blue--rgb: #{mixins.hex-to-rgb(light.$emphasis-blue)};
+
+  --red: #{light.$red};
+  --red--rgb: #{mixins.hex-to-rgb(light.$red)};
+  --orange: #{light.$orange};
+  --orange--rgb: #{mixins.hex-to-rgb(light.$orange)};
+  --orange-light: #{light.$orange-light};
+  --orange-light--rgb: #{mixins.hex-to-rgb(light.$orange-light)};
+  --supernova: #{light.$supernova};
+  --supernova--rgb: #{mixins.hex-to-rgb(light.$supernova)};
+  --supernova-light: #{light.$supernova-light};
+  --supernova-light--rgb: #{mixins.hex-to-rgb(light.$supernova-light)};
+  --supernova-dark: #{light.$supernova-dark};
+  --supernova-dark--rgb: #{mixins.hex-to-rgb(light.$supernova-dark)};
+  --green: #{light.$green};
+  --green--rgb: #{mixins.hex-to-rgb(light.$green)};
+  --green-light: #{light.$green-light};
+  --green-light--rgb: #{mixins.hex-to-rgb(light.$green-light)};
+  --blue-light: #{light.$blue-light};
+  --blue-light--rgb: #{mixins.hex-to-rgb(light.$blue-light)};
+  --blue: #{light.$blue};
+  --blue--rgb: #{mixins.hex-to-rgb(light.$blue)};
+  --bright-blue: #{light.$bright-blue};
+  --bright-blue--rgb: #{mixins.hex-to-rgb(light.$bright-blue)};
+  --electric: #{light.$electric};
+  --electric--rgb: #{mixins.hex-to-rgb(light.$electric)};
+  --electric-light: #{light.$electric-light};
+  --electric-light--rgb: #{mixins.hex-to-rgb(light.$electric-light)};
+  --purple: #{light.$purple};
+  --purple--rgb: #{mixins.hex-to-rgb(light.$purple)};
+  --purple-light: #{light.$purple-light};
+  --purple-light--rgb: #{mixins.hex-to-rgb(light.$purple-light)};
+  --purple-dark: #{light.$purple-dark};
+  --purple-dark--rgb: #{mixins.hex-to-rgb(light.$purple-dark)};
+
+  --pacific: #{light.$pacific};
+  --pacific--rgb: #{mixins.hex-to-rgb(light.$pacific)};
+  --pacific-light: #{light.$pacific-light};
+  --pacific-light--rgb: #{mixins.hex-to-rgb(light.$pacific-light)};
+
+  --mid--success: #{light.$mid--success};
+  --mid--success--rgb: #{mixins.hex-to-rgb(light.$mid--success)};
+  --mid--error: #{light.$mid--error};
+  --mid--error--rgb: #{mixins.hex-to-rgb(light.$mid--error)};
+  --mid--warning: #{light.$mid--warning};
+  --mid--warning--rgb: #{mixins.hex-to-rgb(light.$mid--warning)};
+  --mid--info: #{light.$mid--info};
+  --mid--info--rgb: #{mixins.hex-to-rgb(light.$mid--info)};
+
+  --chart-1: #{light.$chart-1};
+  --chart-2: #{light.$chart-2};
+  --chart-3: #{light.$chart-3};
+  --chart-4: #{light.$chart-4};
+  --chart-5: #{light.$chart-5};
+  --chart-6: #{light.$chart-6};
+  --chart-7: #{light.$chart-7};
+  --chart-8: #{light.$chart-8};
+  --chart-9: #{light.$chart-9};
+  --chart-10: #{light.$chart-10};
+  --chart-11: #{light.$chart-11};
+  --chart-12: #{light.$chart-12};
+  --chart-13: #{light.$chart-13};
+  --chart-14: #{light.$chart-14};
+  --chart-15: #{light.$chart-15};
+  --chart-16: #{light.$chart-16};
+  --chart-17: #{light.$chart-17};
+  --chart-18: #{light.$chart-18};
+  --chart-19: #{light.$chart-19};
+  --chart-20: #{light.$chart-20};
+  --chart-21: #{light.$chart-21};
+  --chart-22: #{light.$chart-22};
+  --chart-23: #{light.$chart-23};
+  --chart-24: #{light.$chart-24};
+}
+
+[data-theme="dark"] {
+  --dark: #{$black};
+  --dark--rgb: #{mixins.hex-to-rgb($black)};
+  --light: #{$white};
+  --light--rgb: #{mixins.hex-to-rgb($white)};
+
+  --background--primary: #{dark.$background--primary};
+  --background--primary--rgb: #{mixins.hex-to-rgb(dark.$background--primary)};
+  --background--subtle: #{dark.$background--subtle};
+  --background--subtle--rgb: #{mixins.hex-to-rgb(dark.$background--subtle)};
+  --background--light-stroke: #{dark.$background--light-stroke};
+  --background--light-stroke--rgb: #{mixins.hex-to-rgb(
+      dark.$background--light-stroke
+    )};
+  --background--dark-stroke: #{dark.$background--dark-stroke};
+  --background--dark-stroke--rgb: #{mixins.hex-to-rgb(
+      dark.$background--dark-stroke
+    )};
+  --background--dark-grey: #{dark.$background--dark-grey};
+  --background--error: #{dark.$background--error};
+  --background--error-rgb: #{mixins.hex-to-rgb(dark.$background--error)};
+  --background--success: #{dark.$background--success};
+  --background--success-rgb: #{mixins.hex-to-rgb(dark.$background--success)};
+  --background--warning: #{dark.$background--warning};
+  --background--warning-rgb: #{mixins.hex-to-rgb(dark.$background--warning)};
+  --background--info: #{dark.$background--info};
+  --background--info-rgb: #{mixins.hex-to-rgb(dark.$background--info)};
+
+  --cta--primary--default: #{dark.$cta--primary--default};
+  --cta--primary--default--rgb: #{mixins.hex-to-rgb(dark.$cta--primary--default)};
+  --cta--primary--hover: #{dark.$cta--primary--hover};
+  --cta--primary--hover--rgb: #{mixins.hex-to-rgb(dark.$cta--primary--hover)};
+  --cta--primary--active: #{dark.$cta--primary--active};
+  --cta--primary--active--rgb: #{mixins.hex-to-rgb(dark.$cta--primary--active)};
+  --cta--primary--disabled: #{dark.$cta--primary--disabled};
+  --cta--primary--disabled--rgb: #{mixins.hex-to-rgb(
+      dark.$cta--primary--disabled
+    )};
+
+  --cta--secondary--default: #{dark.$cta--secondary--default};
+  --cta--secondary--default--rgb: #{mixins.hex-to-rgb(
+      dark.$cta--secondary--default
+    )};
+  --cta--secondary--hover: #{dark.$cta--secondary--hover};
+  --cta--secondary--hover--rgb: #{mixins.hex-to-rgb(dark.$cta--secondary--hover)};
+  --cta--secondary--active: #{dark.$cta--secondary--active};
+  --cta--secondary--active--rgb: #{mixins.hex-to-rgb(
+      dark.$cta--secondary--active
+    )};
+  --cta--secondary--disabled: #{dark.$cta--secondary--disabled};
+  --cta--secondary--disabled--rgb: #{mixins.hex-to-rgb(
+      dark.$cta--secondary--disabled
+    )};
+
+  --cta--positive--default: #{dark.$cta--positive--default};
+  --cta--positive--default--rgb: #{mixins.hex-to-rgb(
+      dark.$cta--positive--default
+    )};
+  --cta--positive--hover: #{dark.$cta--positive--hover};
+  --cta--positive--hover--rgb: #{mixins.hex-to-rgb(dark.$cta--positive--hover)};
+  --cta--positive--active: #{dark.$cta--positive--active};
+  --cta--positive--active--rgb: #{mixins.hex-to-rgb(dark.$cta--positive--active)};
+  --cta--positive--disabled: #{dark.$cta--positive--disabled};
+  --cta--positive--disabled--rgb: #{mixins.hex-to-rgb(
+      dark.$cta--positive--disabled
+    )};
+
+  --cta--negative--default: #{dark.$cta--negative--default};
+  --cta--negative--default--rgb: #{mixins.hex-to-rgb(
+      dark.$cta--negative--default
+    )};
+  --cta--negative--hover: #{dark.$cta--negative--hover};
+  --cta--negative--hover--rgb: #{mixins.hex-to-rgb(dark.$cta--negative--hover)};
+  --cta--negative--active: #{dark.$cta--negative--active};
+  --cta--negative--active--rgb: #{mixins.hex-to-rgb(dark.$cta--negative--active)};
+  --cta--negative--disabled: #{dark.$cta--negative--disabled};
+  --cta--negative--disabled--rgb: #{mixins.hex-to-rgb(
+      dark.$cta--negative--disabled
+    )};
+
+  --typography--primary: #{dark.$typography--primary};
+  --typography--primary--rgb: #{mixins.hex-to-rgb(dark.$typography--primary)};
+  --typography--secondary: #{dark.$typography--secondary};
+  --typography--secondary--rgb: #{mixins.hex-to-rgb(dark.$typography--secondary)};
+  --typography--tertiary: #{dark.$typography--tertiary};
+  --typography--tertiary--rgb: #{mixins.hex-to-rgb(dark.$typography--tertiary)};
+
+  --divider--primary: #{dark.$divider--primary};
+  --divider--primary--rgb: #{mixins.hex-to-rgb(dark.$divider--primary)};
+  --divider--secondary: #{dark.$divider--secondary};
+  --divider--secondary--rgb: #{mixins.hex-to-rgb(dark.$divider--secondary)};
+
+  --red-core: #{dark.$red-core};
+  --red-core--rgb: #{mixins.hex-to-rgb(dark.$red-core)};
+  --orange-core: #{dark.$orange-core};
+  --orange-core--rgb: #{mixins.hex-to-rgb(dark.$orange-core)};
+  --supernova-core: #{dark.$supernova-core};
+  --supernova-core--rgb: #{mixins.hex-to-rgb(dark.$supernova-core)};
+  --green-core: #{dark.$green-core};
+  --green-core--rgb: #{mixins.hex-to-rgb(dark.$green-core)};
+  --blue-core: #{dark.$blue-core};
+  --blue-core--rgb: #{mixins.hex-to-rgb(dark.$blue-core)};
+  --electric-core: #{dark.$electric-core};
+  --electric-core--rgb: #{mixins.hex-to-rgb(dark.$electric-core)};
+  --purple-core: #{dark.$purple-core};
+  --purple-core--rgb: #{mixins.hex-to-rgb(dark.$purple-core)};
+  --pacific-core: #{dark.$pacific-core};
+  --pacific-core--rgb: #{mixins.hex-to-rgb(dark.$pacific-core)};
+
+  --emphasis-blue: #{dark.$emphasis-blue};
+  --emphasis-blue--rgb: #{mixins.hex-to-rgb(dark.$emphasis-blue)};
+
+  --red: #{dark.$red};
+  --red--rgb: #{mixins.hex-to-rgb(dark.$red)};
+  --orange: #{dark.$orange};
+  --orange--rgb: #{mixins.hex-to-rgb(dark.$orange)};
+  --supernova: #{dark.$supernova};
+  --supernova--rgb: #{mixins.hex-to-rgb(dark.$supernova)};
+  --green: #{dark.$green};
+  --green--rgb: #{mixins.hex-to-rgb(dark.$green)};
+  --blue: #{dark.$blue};
+  --blue--rgb: #{mixins.hex-to-rgb(dark.$blue)};
+  --electric: #{dark.$electric};
+  --electric--rgb: #{mixins.hex-to-rgb(dark.$electric)};
+  --purple: #{dark.$purple};
+  --purple--rgb: #{mixins.hex-to-rgb(dark.$purple)};
+  --pacific: #{dark.$pacific};
+  --pacific--rgb: #{mixins.hex-to-rgb(dark.$pacific)};
+
+  --mid--success: #{dark.$mid--success};
+  --mid--success--rgb: #{mixins.hex-to-rgb(dark.$mid--success)};
+  --mid--error: #{dark.$mid--error};
+  --mid--error--rgb: #{mixins.hex-to-rgb(dark.$mid--error)};
+  --mid--warning: #{dark.$mid--warning};
+  --mid--warning--rgb: #{mixins.hex-to-rgb(dark.$mid--warning)};
+  --mid--info: #{dark.$mid--info};
+  --mid--info--rgb: #{mixins.hex-to-rgb(dark.$mid--info)};
+
+  --chart-1: #{dark.$chart-1};
+  --chart-2: #{dark.$chart-2};
+  --chart-3: #{dark.$chart-3};
+  --chart-4: #{dark.$chart-4};
+  --chart-5: #{dark.$chart-5};
+  --chart-6: #{dark.$chart-6};
+  --chart-7: #{dark.$chart-7};
+  --chart-8: #{dark.$chart-8};
+  --chart-9: #{dark.$chart-9};
+  --chart-10: #{dark.$chart-10};
+  --chart-11: #{dark.$chart-11};
+  --chart-12: #{dark.$chart-12};
+  --chart-13: #{dark.$chart-13};
+  --chart-14: #{dark.$chart-14};
+  --chart-15: #{dark.$chart-15};
+  --chart-16: #{dark.$chart-16};
+  --chart-17: #{dark.$chart-17};
+  --chart-18: #{dark.$chart-18};
+  --chart-19: #{dark.$chart-19};
+  --chart-20: #{dark.$chart-20};
+  --chart-21: #{dark.$chart-21};
+  --chart-22: #{dark.$chart-22};
+  --chart-23: #{dark.$chart-23};
+  --chart-24: #{dark.$chart-24};
+}

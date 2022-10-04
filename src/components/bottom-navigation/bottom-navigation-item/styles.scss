@@ -1,0 +1,19 @@
+.nav-item {
+  padding: 6px 15px 7px 15px;
+  color: var(--typography--secondary);
+
+  &--active {
+    .nav-item-icon {
+      display: none;
+    }
+
+    .nav-item-icon-active {
+      display: flex;
+      color: var(--cta--primary--default);
+    }
+  }
+}
+
+.nav-item-icon-active {
+  display: none;
+}

@@ -1,0 +1,61 @@
+@use "../animations";
+@use "../variables";
+
+.modal-overlay {
+  padding: 8px;
+  display: flex;
+  flex-direction: row-reverse;
+  transition: all var(--animation-duration) ease-in-out;
+
+  &:global(.ReactModal__Overlay--after-open) {
+    opacity: 1;
+  }
+  &:global(.ReactModal__Overlay--before-close) {
+    opacity: 0;
+  }
+}
+
+.modal {
+  width: 100%;
+  background-color: var(--light);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation-timing-function: ease-in-out;
+  position: relative;
+}
+
+.side-drawer-modal {
+  max-width: 560px;
+
+  // hide modal to prevent blinking
+  opacity: 0;
+  :global(.ReactModal__Overlay--after-open) & {
+    opacity: 1;
+    animation: slide-in var(--animation-duration);
+  }
+
+  :global(.ReactModal__Overlay--before-close) & {
+    animation: slide-out var(--animation-duration);
+  }
+}
+
+.modal-header {
+  width: 100%;
+  border-bottom: 1px solid var(--divider--secondary);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+  color: var(--typography--primary);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}

@@ -1,0 +1,16 @@
+.container {
+  position: relative;
+  height: 100vh;
+  z-index: 1;
+  overflow-y: auto;
+}
+
+.desktop-container {
+  min-width: 100%;
+}
+
+.mobile-container {
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
